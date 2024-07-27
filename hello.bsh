@@ -1,0 +1,27 @@
+#!/bin/bash
+#==============================================================================
+# FILE: hello.bsh
+#
+# DESCRIPTION:
+#    Simple 'hello-world" shell script ... using Borne Shell.
+#
+# NOTE:
+#    Lesson learned ... if you're pulling other shell scripts from different
+#    environments, make sure the DOS <CR><LF> markers are removed ... that
+#    it's just <CR>.  The DOS format causes the interpreter to bomb.
+#==============================================================================
+echo "Hello Bourne-again shell"
+
+export my_name=`whoami`
+
+echo "$my_name"
+
+if test -n "$my_name"; then
+
+   echo "You are: $my_name"
+
+else
+
+   echo "Don't know who you are"
+
+fi

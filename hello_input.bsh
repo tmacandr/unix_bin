@@ -1,0 +1,16 @@
+#!/bin/bash
+
+echo "Begin -hello bourne shell"
+
+read -p 'Enter the letter x:' LETTER
+
+if test "$LETTER" == "x"; then
+
+   echo "You entered $LETTER ... that is correct"
+
+else
+
+   echo "You entered $LETTER ... which is not correct"
+
+fi
+

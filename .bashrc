@@ -2,6 +2,8 @@
 # see /usr/share/doc/bash/examples/startup-files (in the package bash-doc)
 # for examples
 
+echo "---> Begin .bashrc"
+
 # If not running interactively, don't do anything
 case $- in
     *i*) ;;
@@ -61,6 +63,9 @@ if [ "$color_prompt" = yes ]; then
 else
     PS1='${debian_chroot:+($debian_chroot)}\u@\h:\w\$ '
 fi
+
+PS1='Lizzy> '
+
 unset color_prompt force_color_prompt
 
 # If this is an xterm set the title to user@host:dir
@@ -115,3 +120,8 @@ if ! shopt -oq posix; then
     . /etc/bash_completion
   fi
 fi
+
+export PATH=$PATH:$HOME/bin:.
+
+echo "---> End .bashrc"
+

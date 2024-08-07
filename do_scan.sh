@@ -39,8 +39,6 @@ fi
 
 echo $SOURCE
 
-TO_DIR=`pwd`
-
 #
 # The 'center aligned' option doesn't work ... not sure why.
 # It causes 'seg fault'.
@@ -54,5 +52,5 @@ scanimage -d 'brother5:bus2;dev5' \
           --source "$SOURCE"      \
           --resolution 600        \
           --format jpeg           \
-          --batch=$TO_DIR/$FILE_NAME_PREFIX%.2d.jpg --batch-start=$COUNT_START
+          --batch=$FILE_NAME_PREFIX%d.jpg --batch-start=$COUNT_START
 

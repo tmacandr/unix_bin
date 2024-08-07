@@ -43,6 +43,8 @@ echo $SOURCE
 
 TO_DIR=`pwd`
 
+DEVICE='brother5:bus3;dev2'
+
 #
 # The 'center aligned' option doesn't work ... not sure why.
 # It causes 'seg fault'.
@@ -52,7 +54,7 @@ TO_DIR=`pwd`
 # Only seems to accept 'left aligned'
 #
 
-scanimage -d 'brother5:bus3;dev3' \
+scanimage -d $DEVICE             \
           --source "$SOURCE"      \
           --format jpeg           \
           --batch=$TO_DIR/$FILE_NAME_PREFIX%.2d.jpg --batch-start=$COUNT_START

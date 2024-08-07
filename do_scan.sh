@@ -39,6 +39,8 @@ fi
 
 echo $SOURCE
 
+TO_DIR=`pwd`
+
 #
 # The 'center aligned' option doesn't work ... not sure why.
 # It causes 'seg fault'.
@@ -47,10 +49,17 @@ echo $SOURCE
 #
 # Only seems to accept 'left aligned'
 #
+# Device can change based on USB port used.
+# Use:
+#    scanimage -L
+# to list ALL devices.
+#
 
-scanimage -d 'brother5:bus2;dev5' \
+DEVICE='brother5:bus3;dev2'
+
+scanimage -d $DEVICE              \
           --source "$SOURCE"      \
           --resolution 600        \
           --format jpeg           \
-          --batch=$FILE_NAME_PREFIX%d.jpg --batch-start=$COUNT_START
+          --batch=$TO_DIR/$FILE_NAME_PREFIX%.2d.jpg --batch-start=$COUNT_START
 

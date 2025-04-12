@@ -53,7 +53,11 @@ Find_String_Match ()
 
     pwd
 
-    LIST=`ls $FILE_TYPE`
+    #
+    # Redirect errors from <stderr>
+    # to /dev/null
+    #
+    LIST=`ls $FILE_TYPE 2>/dev/null`
 
     for each_file in $LIST; do
 

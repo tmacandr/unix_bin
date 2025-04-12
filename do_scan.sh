@@ -55,9 +55,10 @@ TO_DIR=`pwd`
 # to list ALL devices.
 #
 
-DEVICE='brother5:bus3;dev2'
+USB2='brother5:bus3;dev2'
+USB3='brother5:bus3;dev3'
 
-scanimage -d $DEVICE              \
+scanimage -d $USB2                \
           --source "$SOURCE"      \
           --resolution 600        \
           --format jpeg           \

@@ -49,9 +49,9 @@ echo ""
 #===============================================
 Find_String_Match ()
 {
-    echo "_____________________"
+    #echo "_____________________"
 
-    pwd
+    #pwd
 
     #
     # Redirect errors from <stderr>
@@ -71,7 +71,7 @@ Find_String_Match ()
 
     done
 
-    echo "_____________________"
+    #echo "_____________________"
 }
 
 

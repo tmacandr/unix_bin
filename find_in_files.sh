@@ -51,7 +51,7 @@ Find_String_Match ()
 {
     #echo "_____________________"
 
-    #pwd
+    CURR_DIR=`pwd`
 
     #
     # Redirect errors from <stderr>
@@ -65,7 +65,7 @@ Find_String_Match ()
 
        if test -n "$IS_FOUND"; then
 
-          echo "In File: $each_file"
+          echo "In File: $CURR_DIR/$each_file"
 
        fi
 

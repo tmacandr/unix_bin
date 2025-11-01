@@ -2,6 +2,8 @@
 
 ls *.eml > TMP_LIST.txt
 
+COUNT=0
+
 while IFS= read -r line; do
 
    echo "From: $line"
@@ -10,13 +12,45 @@ while IFS= read -r line; do
 
    TO=`echo $TO | sed "s/'/-/g"`
 
+   TO=`echo $TO | sed "s/!/-/g"`
+
+   TO=`echo $TO | sed "s/?/-/g"`
+
+   TO=`echo $TO | sed "s/(/-/g"`
+
+   TO=`echo $TO | sed "s/)/-/g"`
+
+   TO=`echo $TO | sed "s/\"/-/g"`
+
+   TO=`echo $TO | sed "s/>/-/g"`
+
+   TO=`echo $TO | sed "s/</-/g"`
+
+   TO=`echo $TO | sed "s/\[/_/g"`
+
+   TO=`echo $TO | sed "s/\]/_/g"`
+
+   TO=`echo $TO | sed "s/,/_/g"`
+
+   TO=`echo $TO | sed "s/|/_/g"`
+
+   TO=`echo $TO | sed "s/;/_/g"`
+
+   TO=`echo $TO | sed 's/\\$/_/g'`
+
+   TO=`echo $TO | sed "s/\&/_/g"`
+
+   TO=`echo $TO | sed "s/~/_/g"`
+
    #echo "To..: $TO"
 
-   DATE=`cat "$line" | grep "Date: " | sed 's/^.*\.eml://g'`
+   DATE_STAMP=`cat "$line" | grep "Date: " | sed 's/^.*\.eml://g'`
 
-   DATE=`echo $DATE | awk '{print $5 "_" $4 "_" $3}'`
+   #echo "Date stamp: $DATE_STAMP"
 
-   echo "Date: $DATE"
+   DATE=`echo $DATE_STAMP | awk '{print $5 "_" $4 "_" $3 "_" $6}'`
+
+   #echo "Date: $DATE"
 
    TO=`echo $DATE $TO`
 
@@ -24,7 +58,16 @@ while IFS= read -r line; do
 
    echo "To..: $TO"
 
-   # mv "$line" $TO
+   while test -f $TO; do 
+      TO=`echo "$TO $COUNT.eml"`
+      TO=`echo $TO | sed 's/ /_/g'`
+      echo "===> Count: $COUNT"
+      COUNT=$((COUNT + 1))
+   done 
+
+   echo "To++: $TO"
+
+   mv "$line" $TO
 
 done < "TMP_LIST.txt"
 

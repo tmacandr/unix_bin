@@ -3,8 +3,8 @@
 # FILE: do_meld.sh
 #
 # DESCRIPTION:
-#    Uses 'linux' command 'scanimage' to scan documents from
-#    Brother ADS-1200.
+#    Uses Linux 'compare' tool called 'meld' to compare two items.  Can be
+#    file to file, or full directory to full directory.
 #=============================================================================
 echo "---> Arguments: $#"
 

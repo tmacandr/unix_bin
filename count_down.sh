@@ -12,5 +12,12 @@ while [[ $COUNT -gt 0 ]]; do
 
 done
 
+COUNT=0
+
+while [[ $COUNT < 3 ]]; do
+   COUNT=$((COUNT + 1))
+   xterm &
+done
+
 echo "---> Done"
 

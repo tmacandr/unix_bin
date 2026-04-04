@@ -1,8 +1,10 @@
 #!/bin/bash
 
+read -p 'Enter Max Count: ' MAX_COUNT 
+
 COUNT=0
 
-while [[ $COUNT -gt -1 ]]; do
+while [[ $COUNT -lt $MAX_COUNT ]]; do
 
    echo "---> Count: $COUNT"
 

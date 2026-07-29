@@ -64,7 +64,7 @@ else
     PS1='${debian_chroot:+($debian_chroot)}\u@\h:\w\$ '
 fi
 
-PS1='Lizzy> '
+PS1='Change_Me> '
 
 unset color_prompt force_color_prompt
 

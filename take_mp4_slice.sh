@@ -13,6 +13,20 @@ fi
 
 IN_VID=$1
 
-#                     HH:MM:ss     HH:MM:SS
-ffmpeg -i $IN_VID -ss 00:01:40 -to 00:01:52 -c copy slice.mp4
+if test -z "$2"; then
+   echo "***> ERROR - start time of video not specified (HH:MM:SS)"
+   exit 99
+fi
+
+START_TIME=$2
+
+if test -z "$3"; then
+   echo "***> ERROR - end time of video not specified (HH:MM:SS)"
+   exit 99
+fi
+
+END_TIME=$3
+
+#         $INPUT       HH:MM:SS        HH:MM:SS     OUTPUT
+ffmpeg -i $IN_VID -ss $START_TIME -to $END_TIME -c copy slice.mp4
 
